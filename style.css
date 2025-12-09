@@ -1,0 +1,609 @@
+/* Generelle styles */
+html {
+    /* Sikrer, at <html> er baseret på hele viewportens højde */
+    height: 100%; }
+
+
+body {
+    font-family: quicksand;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;  
+}
+
+
+.side-hjem {
+  background-image: radial-gradient(
+        circle at top left,
+        #030526 0%,  /* Blå fra 0% til 20% */
+        #1A1F73 2%,  /* Lilla fra 20% til 80% */
+        #ACB0F2 30%,
+        #F0F0F2 40%  /* Creme fra 80% til 100% */
+        );
+        
+}
+
+
+.side-projekter {
+  background-color: #F0F0F2;
+}
+
+h1{
+    font-size: 30px;
+}
+
+p{
+    font-size: 16px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+
+.text-box strong {
+  font-size: 20px; /* større font til strong */
+  font-weight: bold; /* typisk default */
+}
+
+.text-box small {
+  font-size: 16px; /* mindre font til small */
+  color: #666;       /* valgfrit: gør den lidt lysere */
+}
+
+.site-header {
+    background-color: rgb(3, 5, 38);
+    color: rgb(172, 176, 242);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Gør headeren "klæbrig" */
+    top: 0; /* Klæber til toppen af visningsporten */
+    z-index: 1000; /* Sikrer den ligger over andet indhold */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Fordeler logo og menu i hver sin side */
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.nav-logo img {
+  width: 40px; /* Sætter bredden til f.eks. 150 pixels */
+  height: auto; /* Bevarer billedets proportioner */
+}
+
+
+
+.nav-menu {
+    position: fixed;
+    left: -100%; /* Skjul menuen uden for skærmen */
+    top: 60px; /* Under headeren */
+    flex-direction: column; /* Stabler links lodret */
+    background-color: rgb(3, 5, 38);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+}
+
+.nav-menu.active {
+    left: 0; /* Flytter menuen ind i synsfeltet */
+    background-color: transparent;
+}
+
+.nav-link {
+    color: rgb(172, 176, 242);
+    text-decoration: none;
+    padding: 15px; /* Mere lodret luft for touch-skærme */
+    margin: 10px 0; /* Mere lodret luft for touch-skærme */
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #181A40;
+    border-radius: 5px;
+}
+
+/* Skjul burgermenu-ikonet som standard (desktop view) */
+.hamburger {
+    display: block; 
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(172, 176, 242);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Skjuler den midterste streg */
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); /* Roterer den øverste streg */
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Roterer den nederste streg */
+}
+
+ /* ==================================== */
+/* 1. MOBILE-FIRST BASE STYLES (Standard) */
+/* ==================================== */
+
+/* Hero layout - Mobil (Standard: Stak) */
+.hero {
+  display: flex;
+  flex-direction: column; /* Stack elementer lodret */
+  min-height: auto;       /* Højden er dynamisk på mobil */
+  max-width: 100%;        /* Fyld hele skærmbredden */
+  margin: 0 auto;
+  border-radius: 0;       /* Fjern border-radius på fuld bredde */
+  padding-top: 0;
+}
+
+/* Venstre: billede - Mobil */
+.hero-left {
+  flex: 1 1 100%;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  /* Fast højde for at sikre, at billedet er synligt på mobil */
+  min-height: 250px; 
+}
+
+.hero-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(100%);
+}
+
+/* Højre: lys panel med centreret indhold - Mobil */
+.hero-right {
+  flex: 1 1 100%;
+  background: var(--bg-right);
+  display: grid;
+  place-items: center;
+  background-color: #F0F0F2;
+  /* Sørg for luft omkring indholdet på mobil */
+  padding: 40px 20px; 
+}
+
+/* Indholdets bredde - Mobil */
+.content {
+  text-align: center;
+  /* Tillad indholdet at fylde, men begræns max-bredden for læselighed */
+  max-width: 400px; 
+}
+
+/* Brandtypografi - Mobil */
+.brand {
+  font-family: var(--brand-font);
+  font-weight: 200;
+  /* Mindre skriftstørrelse på mobil */
+  font-size: 32px; 
+  letter-spacing: 0.01em;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  /* Fast størrelse for læselighed på mobil */
+  font-size: 14px; 
+  letter-spacing: 0.18em;
+  margin: 0 0 32px;
+}
+
+.knap {
+  display: inline-block;
+  padding: 10px 20px;
+  }
+
+
+
+
+/* Styling til Banner (Masken) */
+.scrolling-banner {
+    width: 100%; /* Sørg for at banneret dækker hele bredden */
+    overflow: hidden; /* VIGTIGT: Skjuler den del af teksten, der er uden for banneret */
+  
+    padding: 10px 0;
+    white-space: nowrap; /* Sikrer, at teksten forbliver på én linje */
+    box-sizing: border-box;
+}
+
+/* Styling til Teksten (Selve animationen) */
+.scrolling-text {
+    display: inline-block;
+    animation: scroll-left 40s linear infinite; /* Navn på animation, tid, hastighed, uendeligt */
+    color: #ACB0F2;
+    font-size: 50px;
+    font-weight: thin;
+    padding-left: 100%; /* Starter teksten helt ude til højre (uden for synsfelt) */
+}
+
+/* Definition af Animationen */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%); /* Startposition: 0% af sin bredde */
+    }
+    100% {
+        transform: translateX(-100%); /* Slutposition: 100% af sin bredde til venstre */
+    }
+}
+
+.solid-color-banner {
+    /* 1. Sæt Bredde */
+    width: 100%; 
+    
+    /* 2. Sæt Ensfarvet Baggrund (Vælg din farvekode, f.eks. en mørk grå) */
+    background-color: #030526; 
+    
+    /* 3. Definer Højden (Brug padding for at give luft omkring teksten, det er fleksibelt) */
+    padding: 30px 0; /* 20px vertikalt, 0 horisontalt */
+    
+    /* Valgfri: Style teksten inde i banneret */
+    color: white;
+    text-align: center;
+    font-size: 1em;
+}
+
+
+
+/* Valgfri: Sørg for at teksten inde i <p> er centreret */
+.solid-color-banner p {
+    margin: 0; /* Nulstil standardmargin på p-tagget */
+}
+
+.grid-containerbund {
+  display: grid;
+  /* Skift til 1 kolonne som standard */
+  grid-template-columns: 1fr; 
+  height: auto; 
+  width: 100%;
+}
+
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 15px; /* afstand mellem punkterne */
+  height: 600px;
+}
+
+.features li {
+  display: grid;
+  grid-template-columns: 30px 1fr; /* ikon + tekst */
+  align-items: center;
+  padding: 10px;
+}
+
+.features li:hover {
+background: linear-gradient(70deg, #030526, #ACB0F2);  
+color: #F0F0F2;
+}
+
+
+li strong {
+  font-size: 20px;
+}
+
+li small {
+  font-size: 18px;
+}
+
+
+
+.icon {
+  font-size: 30px;
+  color: #F0F0F2;;
+}
+
+.icon:hover {
+  font-size: 30px;
+  color: #181A40 /* accentfarve */
+}
+
+
+/* 2. INTRO SEKTION */
+.main-text {
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-left: 50px;
+}
+
+
+/* 3. PORTFOLIO CASES (MOBIL-VERSION: STAKKET) */
+.portfolio-case {
+    padding-left: 80px;
+    padding-right: 80px;
+    
+}
+
+.case-number {
+    font-size: 55px;
+    font-weight: 700;
+    color: #030526;
+    margin-bottom: 10px;
+}
+
+.case-title {
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.case-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.brød-tekst {
+    font-size: 16px;
+    font-weight: 100;
+}
+
+
+.case-img {
+    width: 100%; /* Billeder fylder hele bredden på mobil */
+    height: 350px;
+    object-fit: cover;
+    object-position: center; 
+    display: block;
+    margin-bottom: 15px; /* Lidt afstand til næste billede/element */
+}
+
+.main-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 20px 10px;
+  display: flex;
+  /* Standard på mobil: stablet oven på hinanden */
+  flex-direction: column; 
+  gap: 20px; /* Afstand mellem de stablede elementer */
+}
+
+.footer-item {
+  /* Hvert element er en flex-container for at centrere indholdet */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Lodret centrering */
+  align-items: center;     /* Vandret centrering */
+  text-align: right;
+  padding: 10px 0;
+}
+
+.footer-item p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.footer-item span {
+    font-size: 0.9em;
+}
+
+
+
+/* Media Query for mobil størrelser (under 768px) */
+@media screen and (min-width: 769px) {
+
+    .hamburger {
+        display: none; /* Skjul hamburger-ikonet på desktop */
+    }
+
+    .nav-menu {
+        /* Nulstil mobil-specifikke styles */
+        position: static;
+        left: auto;
+        top: auto;
+        /* Genskab desktop-layout */
+        display: flex; 
+        flex-direction: row; 
+        width: auto;
+        background-color: transparent; /* Ingen baggrundsfarve */
+        box-shadow: none;
+        transition: none; /* Deaktiver mobil-overgangen */
+    }
+
+    .nav-menu.active {
+        left: auto; 
+    }
+
+    .nav-link {
+        padding: 10px 15px;
+        margin: 0 5px;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 1; /* Nulstil, selvom den er skjult, for at være sikker */
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: none;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: none;
+    }
+    
+    .grid-containertop {
+       grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-containerbund {
+       grid-template-columns: 1fr 1fr;
+    }
+
+    .flex-item{
+        /* Justeringer kun for desktop */
+        padding-inline: 100px; 
+    }
+    
+    h1{
+    font-size: 55px;
+    }
+
+    p{
+    font-size: 18px;
+    }   
+
+    h2{
+    font-size: 25px;
+    }
+
+  
+.text-box strong {
+    font-size: 25px;
+  }
+  .text-box small {
+    font-size: 18px;
+  }
+
+  .scrolling-text{
+    font-size: 100px;
+  }
+.nav-logo img {
+  width: 60px; /* Sætter bredden til f.eks. 150 pixels */
+  height: auto; /* Bevarer billedets proportioner */
+}
+
+
+
+  /* Anvend Flexbox for at opnå 2-kolonne layout for hver case */
+    .portfolio-case {
+        display: flex;
+        gap: 100px; /* Afstand mellem kolonnerne */
+        margin: 80px;
+
+    }
+    
+    .case-text {
+    align-content: center; 
+    flex-direction: column;
+    }
+
+.case-img {
+    width: 550px;
+    height: 500px;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.case-img.hidden {
+opacity: 0;
+transform: translateY(50px); /* Flytter billedet 50 pixels ned */ 
+}
+
+
+.case-img.visible {
+ opacity: 1; /* Synligt */
+transform: translateY(0); /* Tilbage til normal position */
+  
+}
+.case-number {
+    font-size: 100px;
+    padding-bottom: 20px; 
+}
+
+.case-title {
+    font-size: 40px;
+}
+
+.case-subtitle {
+    font-size: 18px;
+
+   
+}
+.brød-tekst {
+    font-size: 18px;
+}
+
+.image-wrap {
+  height: 600px;    
+}
+
+  /* Hero layout - Desktop */
+  .hero {
+    flex-direction: row; /* Skift tilbage til vandret layout */
+    min-height: 80vh;    /* Gendan den høje højde */
+    max-width: 1200px;   /* Gendan den maksimale bredde */
+    border-radius: 8px;
+    padding-top: 20px;
+  }
+
+  /* Venstre: billede - Desktop */
+  .hero-left {
+    flex: 1 1 50%; /* 50% bredde */
+    min-height: auto; /* Fjern fast højde */
+  }
+
+  /* Højre: lys panel - Desktop */
+  .hero-right {
+    flex: 1 1 50%; /* 50% bredde */
+    padding: 0;    /* Fjern mobil-padding, place-items center styrer det */
+  }
+  
+  /* Indholdets bredde - Desktop */
+  .content {
+    max-width: 480px; /* Gendan desktop max-bredde */
+  }
+  
+  /* Brandtypografi - Desktop */
+  .brand {
+    font-size: 45px; /* Gendan desktop skriftstørrelse */
+  }
+  
+  /* Subtitle - Desktop (brug clamp for fleksibilitet på større skærme) */
+  .subtitle {
+    font-size: clamp(12px, 1.6vw, 14px);
+  }
+
+    
+   .main-footer {
+    /* Skift til vandret layout */
+    flex-direction: row; 
+    /* Fordel elementerne jævnt over bredden */
+    justify-content: space-around; 
+    align-items: stretch; /* Sørg for at elementerne fylder højden */
+    padding: 30px 20px;
+    gap: 0; /* Fjern gap, da flex items styrer bredden */
+  }
+
+  .footer-item {
+    /* Hvert element tager en tredjedel af pladsen */
+    flex: 1 1 33.33%; 
+    /* Genbrug centreringsreglerne */
+    justify-content: center; 
+    align-items: center;     
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
