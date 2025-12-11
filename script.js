@@ -51,3 +51,4 @@ const observer = new IntersectionObserver((entries, observer) => {
 imagesToAnimate.forEach(image => {
   observer.observe(image);
 });
+
