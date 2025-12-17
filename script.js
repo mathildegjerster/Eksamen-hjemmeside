@@ -47,8 +47,14 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, 
 );
 
-// 5. Gå igennem alle fundne billeder og bed observeren om at overvåge dem
-imagesToAnimate.forEach(image => {
-  observer.observe(image);
-});
-
+document.addEventListener('DOMContentLoaded', () => {
+        const closeButton = document.getElementById('close-overlay');
+        const overlay = document.getElementById('full-screen-overlay');
+        
+        if (closeButton && overlay) {
+            closeButton.addEventListener('click', function() {
+                // Skjul funktionen
+                overlay.classList.remove('is-visible'); 
+            });
+        }
+    });

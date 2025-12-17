@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt - Min Hjemmeside</title> <!-- Ændret title -->
     <link rel="stylesheet" href="style.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="side-kontakt">
 
     <header class="site-header">
         <nav class="navbar">
-            <a href="index.html" class="nav-link nav-logo"><img src="img/Logo.webp"Logo"></a> <!-- Tilføjet en logo-pladsholder -->
+           <a href="index.html" class="nav-link nav-logo"><img src="img/logo-sort.webp" alt="Logo"></a> <!-- Tilføjet en logo-pladsholder -->
             
-            <!-- Burgermenu ikon (disse 3 spans udgør de 3 streger) -->
+
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
 
-            <!-- Menu links -->
+
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Forside</a>
                 <a href="projekter.html" class="nav-link">Projekter</a>
@@ -32,35 +32,74 @@
         </nav>
     </header>
 
- <main>
+<div id="full-screen-overlay" class="is-visible"> 
+        
+        <div class="contact-content-box">
+            
+            <header class="contact-header">
+                <h1>Kontakt mig</h1>
+                <p>Et uforpligtende møde er altid gratis.</p>
+                <p>Jeg tilbyder både timepris og pakkeløsninger.</p>
+            </header>
 
-<section class="hero-kontakt">
-  <div class="hero-left-kontakt">
-   <img src="img/mg3.webp" alt="">
-  </div>
-
-  <div class="hero-right-kontakt">
-    <div class="content-kontakt">
-      <h1>Kontakt</h1>
-      <p>Mathilde Gjerster <br> DK 5900 Rudkøbing <br> Tlf: + 45 42 40 46 51 <br> E-mail: mathildegjerster@gmail.com</p>
-      <br>
-
-      <p>Visuel identitet  •  Logo  •  Hjemmeside  •   Webshop  •   Tryksager</p>
-        <br>
-      <a href="https://www.linkedin.com/in/mathilde-gjerster-92ba3632a/ target="_blank" title="Min LinkedIn Profil">
-    <i class="fab fa-linkedin"></i>
-    </a>
-
- <a href="mailto:mathildegjerster@gmail.com" class="email-ikon">
-    <i class="fas fa-envelope"></i>
-    </a>
-
-
+            <form class="contact-form">
+                
+                <div class="input-row">
+                    <input type="text" placeholder="Navn" required>
+                    <input type="email" placeholder="E-mail" required>
+                </div>
+                
+                <textarea placeholder="Besked" rows="6" required></textarea>
+                
+                <button type="submit" class="send-button">Send besked</button>
+            </form>
+        </div>
     </div>
-  </div>
-</section>
 
-</main>
+
+    <footer class="footer">
+    <div class="footer-header-container">
+        <div class="footer-logo"><img src="img/Logo-hvid.webp" alt=""></div>
+        <p>Skal vi samarbejde?</p>
+        <a href="kontakt.html" class="top-cta">KONTAKT</a>
+    </div>
+
+    <div class="footer-content-container">
+        <div class="footer-column contact-column">
+            <h3>Kontakt</h3>
+            <ul>
+                     <li> Mathilde Gjerster</li>
+                <li> + 45 42 40 46 51</li>
+                <li>mathildegjerster@gmail.com </li>
+                <li>5900 Rudkøbing </li>
+   
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Service</h3>
+            <ul>
+                <li><i class="icon-logodesign"></i> Logodesign</li>
+                <li><i class="icon-webdesign"></i> Hjemmesidedesign</li>
+                <li><i class="icon-visual"></i> Emballagedesign</li>
+                <li><i class="icon-social"></i> Sociale medier</li>
+                <li><i class="icon-motion"></i> Tryksager</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Portefølje</h3>
+            <ul>
+                <li><i class="icon-logodesign"></i> Cases</li>
+                <li><i class="icon-cases"></i> Skills</li>
+                <li><i class="icon-gallery"></i> Galleri</li>
+            </ul>
+        </div>
+
+         <div class="copyright-info">
+            COPYRIGHT 2025 © | MGJERSTER.DK
+        </div> 
+</footer>
 
     <script src="script.js"></script>
 </body>
