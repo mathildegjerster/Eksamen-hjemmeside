@@ -166,6 +166,16 @@ h3 {
     margin-top: 0;
 }
 
+.contact-column li{
+    color: #F0F0F2;
+
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+
+}
+
 .footer-header-container {
     display: flex;
     flex-direction: column; /* Stablet på mobil */
@@ -277,21 +287,27 @@ background-image: url(img/mg1.webp);
 }
 
 .forside-om-mig h2 {
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 35px;
+    font-weight: 300;
 }
 
 .forside-om-mig h1 {
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 50px;
+    margin-top: 10px;
 }
 
 .forside-om-mig p {
-    line-height: 30px;
+   word-spacing: 10px;
+   margin-bottom: 10px;
+   font-weight: 400;
 }
 
 
+
 .knap, .knap2 {
-  background-color: #F23D5E;;
+background-color: #F23D5E;;
 border: solid #F23D5E;
 margin-top: 20px;
 color: #F0F0F2;
@@ -385,37 +401,44 @@ color: #F0F0F2;
 }
 
 /* Banner sektioner */
+
+/* Container */
 .scrolling-banner {
-    width: 100%;
-    overflow: hidden;
-    padding: 10px 0;
-    white-space: nowrap;
-    box-sizing: border-box;
-    background-color:  #F2F2F2
+  width: 100%;
+  overflow: hidden;
+  background-color: #F2F2F2;
+  padding: 0;
+  /* Læg “sporet” vandret */
+  display: flex;
+  white-space: nowrap;
 }
 
+/* Hver tekstblok (original + den klonede) */
 .scrolling-text {
-    display: inline-block;
-    animation: scroll-left 60s linear infinite;
-    color:#212121;
-    padding-left: 100%;
-    font-weight: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 4rem;              /* afstand mellem ord/sektorer */
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 60s linear infinite;
 }
 
 .scrolling-text h2 {
-    font-size: 60px;
-    font-weight: 200;
-    opacity: 0.5;
+  margin: 0;
+  font-size: 60px;
+  font-weight: 200;
+  opacity: 0.5;
+  color: #212121;
 }
 
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+/* Flyt -50% fordi der kommer 2 identiske kopier i række */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
+
+
+
 
 
 
@@ -433,11 +456,21 @@ color: #F0F0F2;
     }
 
    
-.grid-item3 h1{
+.grid-item3 h2{
         padding-bottom: 20px;
+        font-size: 35px;
+        font-weight: 300;
     } 
 
+.grid-item3 h3{
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 50px;
+    } 
 
+.grid-item3 p{
+ line-height: 30px;
+}
     
     .knap2 {
     margin-bottom: 100px;
@@ -475,9 +508,6 @@ color: #F0F0F2;
     padding-right: 30px;
 }
 
-.grid-item3 h2 {
-    margin-top:60px;
-}
 
 .text-box h3 {
     font-weight: 400;
@@ -503,7 +533,7 @@ color: #F0F0F2;
     padding: 30px 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     margin: 30px;
-    line-height: 20px;
+        line-height: 30px;
 }
 
 .indholds-boks h3 {
@@ -532,14 +562,18 @@ color: #F0F0F2;
 
 .case-title {
     margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: 300;
 }
 
 .case-subtitle {
     color: #000000;
     margin-bottom: 20px;
     font-weight: 400;
+}
 
-
+.brød-tekst {
+        line-height: 30px;
 }
 
 .case-img {
@@ -568,6 +602,7 @@ color: #F0F0F2;
 
 .kontakt-banner h2 {
     font-weight: 300;
+    font-size: 25px;
 }
 
 .kontakt-banner h3 {
@@ -615,18 +650,23 @@ color: #F0F0F2;
 }
 
 .contact-content-box {
-    width: 90%;
+    width: 80%;
     max-width: 500px;
     padding: 20px;
     text-align: center;
 }
 
 .contact-header h1 {
+    font-size: 35px;
+    font-weight: 300;
     margin-bottom: 10px;
 }
 
 .contact-header p {
     margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 50px;
 }
 
 .contact-form input,
@@ -711,15 +751,22 @@ background-image: url(img/mg3.webp);
     padding-bottom: 20px;
 }
 
+.hvid-boks h2 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
 .hvid-boks p {
     line-height: 30px;
 }
 
 
 /* Skills sektion */
-.skills-section h1 {
+.skills-section h2 {
 margin-bottom: 20px;
 padding-left: 30px;
+font-size: 35px;
+font-weight: 200;
 
 }
 
@@ -854,24 +901,26 @@ padding-left: 30px;
   box-sizing: border-box;      /* så padding ikke “sprænger” højden */
   display: flex;               /* for at centrere indhold vertikalt/horizontalt */
   align-items: center;         /* lodret centrering af teksten */
-  justify-content: center;     /* vandret centrering (valgfrit) */
-  padding: 24px;               /* bevar din indvendige luft */
+  justify-content: center;     
+  padding: 20px;               /* bevar din indvendige luft */
 }
 
 
 
 .forside-om-mig h2 {
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 45px;
+   
 }
 
 .forside-om-mig h1 {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .forside-om-mig p {
    font-size: 16px;
 }
+
+
 
 
     .container {
@@ -898,6 +947,16 @@ padding-left: 30px;
    padding-inline: 0px;
    padding-left: 100px;
     }
+
+
+    .grid-item3 h2{
+   font-size: 45px;
+    }
+
+    .grid-item3 h3{
+        font-size: 25px;
+  
+    } 
 
    .grid-item4 {
     padding-inline: 100px;
@@ -941,7 +1000,9 @@ padding-left: 30px;
         height: 500px;
         margin-bottom: 0;
     }
-
+    .case-title {
+    font-size: 45px;
+}
     .case-text {
         grid-column: 1 / 2;
         margin-bottom: 0;
@@ -985,6 +1046,15 @@ padding-left: 30px;
         align-content: center;
     }
 
+    .contact-header h1 {
+    font-size: 45px;
+}
+
+.contact-header p {
+    font-size: 25px;
+}
+    
+
     /* --- OM MIG --- */
     .om-mig {
         flex-direction: row;
@@ -1024,6 +1094,10 @@ padding-left: 30px;
         color: #260E17;
     }
 
+    .hvid-boks h2 {
+    font-size: 20px;
+}
+
     .skills-container {
         margin-top: 150px;
         margin-bottom: 150px;
@@ -1033,8 +1107,10 @@ padding-left: 30px;
         align-items: flex-start;
     }
 
-    .skills-section h1 {
+    .skills-section h2 {
     padding: 0px;
+    font-size: 45px;
+  
     }
     .left-column {
         flex: 1;
