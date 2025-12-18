@@ -873,11 +873,12 @@ font-weight: 200;
 .forside-top {
   display: flex;
   flex-direction: row;
-  max-width: 1200px;
+  max-width: 100%;
   margin-top: 80px;
   align-items: stretch; 
   height: 600px; 
     margin-bottom: 80px;  
+    padding-inline: 80px;
 }
 
 
@@ -902,7 +903,8 @@ font-weight: 200;
   display: flex;               /* for at centrere indhold vertikalt/horizontalt */
   align-items: center;         /* lodret centrering af teksten */
   justify-content: center;     
-  padding: 20px;               /* bevar din indvendige luft */
+  padding: 20px;  
+        /* bevar din indvendige luft */
 }
 
 
@@ -933,7 +935,7 @@ font-weight: 200;
     .boks {
         flex: 1;
         margin: 0;
-        height: 400px;
+        height: 500px;
     }
 
     .grid-containerbund {
@@ -973,7 +975,7 @@ font-weight: 200;
     /* --- PROJEKTER --- */
     .projekt-sektion {
         justify-content: flex-start;
-        padding-left: 120px;
+        padding-inline: 80px;
         padding-top: 0;
         padding-bottom: 0;
         margin-bottom: 200px;
@@ -997,7 +999,7 @@ font-weight: 200;
     }
 
     .case-img {
-        height: 500px;
+        min-height: 500px;
         margin-bottom: 0;
     }
     .case-title {
@@ -1058,10 +1060,11 @@ font-weight: 200;
     /* --- OM MIG --- */
     .om-mig {
         flex-direction: row;
-        max-width: 1200px;
+        width: auto;
         margin-top: 80px;
         align-items: center;
         height: 700px;
+        padding-inline: 80px;
     }
 
     .om-mig-left {
